@@ -1,11 +1,12 @@
 {
   "service": "todos",
+  "name": "rest-demo-todos",
   "dockerComposeFile": "../docker-compose.yaml",
   "workspaceFolder": "/workspace",
   "extensions": [
-	"JakeBecker.elixir-ls",
-	"phoenixframework.phoenix",
-	"develiteio.api-blueprint-viewer",
-	"42Crunch.vscode-openapi"
-]
+    "JakeBecker.elixir-ls",
+    "phoenixframework.phoenix",
+    "develiteio.api-blueprint-viewer",
+    "42Crunch.vscode-openapi"
+  ]
 }
