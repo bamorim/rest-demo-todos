@@ -3,7 +3,9 @@
   "dockerComposeFile": "../docker-compose.yaml",
   "workspaceFolder": "/workspace",
   "extensions": [
-    "JakeBecker.elixir-ls",
-    "phoenixframework.phoenix"
-  ]
+	"JakeBecker.elixir-ls",
+	"phoenixframework.phoenix",
+	"develiteio.api-blueprint-viewer",
+	"42Crunch.vscode-openapi"
+]
 }

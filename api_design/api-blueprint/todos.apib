@@ -1,0 +1,54 @@
+FORMAT: 1A
+
+# To-Dos
+
+The To-Dos API allow users to add and remove to-do items.
+
+## Todo Collection [/todos]
+
+### List All Todos [GET]
+
++ Response 200 (application/json)
+
+  + Attributes (array[Todo])
+
+### Create Todo [POST]
+
++ Request (application/json)
+
+  + Attributes (CreateTodo)
+
++ Response 201 (application/json)
+
+  The Todo was created successfully
+
+  + Headers
+    Location: /todos/1
+
+  + Attributes (Todo)
+
+## Single Todo [/todos/{id}]
+
+### Retrieve Todo [GET]
+
++ Parameters
+  + id (number) - ID of the Todo
+
++ Response 200 (application/json)
+  The Todo was found
+
+  + Attributes (Todo)
+
++ Response 404
+  No Todo with that ID can be found
+
+## Data Structures
+
+### Todo
+
++ id: 1 (number, required)
++ title: Buy milk (string, required)
+
+### CreateTodo
+
++ title: Buy milk (string, required)
