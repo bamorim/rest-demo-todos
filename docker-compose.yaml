@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:12-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  todos:
+    build: .devcontainer
+    ports:
+      - 4000:4000
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - .:/workspace
+volumes:
+  postgres_data: {}

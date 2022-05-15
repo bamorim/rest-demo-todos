@@ -1,0 +1,9 @@
+{
+  "service": "todos",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "JakeBecker.elixir-ls",
+    "phoenixframework.phoenix"
+  ]
+}
