@@ -1,0 +1,109 @@
+{
+   "info": {
+      "description": "A simple Todo API.",
+      "title": "Todos API",
+      "version": "v1"
+   },
+   "components": {
+      "schemas": {
+         "Todo": {
+            "type": "object",
+            "properties": {
+               "id": {
+                  "type": "integer"
+               },
+               "title": {
+                  "type": "string"
+               }
+            },
+            "required": ["id", "title"]
+         }
+      }
+   },
+   "openapi": "3.0.0",
+   "paths": {
+      "/todos": {
+         "get": {
+            "description": "List all Todos",
+            "operationId": "list-todos",
+            "responses": {
+               "200": {
+                  "description": "OK",
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "type": "array",
+                           "items": {
+                              "$ref": "#/components/schemas/Todo"
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post": {
+            "description": "Create a new Todo",
+            "operationId": "create-todo",
+            "requestBody": {
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "type": "object",
+                        "properties": {
+                           "title": {
+                              "type": "string"
+                           }
+                        },
+                        "required": ["title"]
+                     }
+                  }
+               }
+            },
+            "responses": {
+               "201": {
+                  "description": "Created",
+                  "content": {
+                     "application/json":{
+                        "schema": {
+                           "$ref": "#/components/schemas/Todo"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/todos/{id}": {
+         "get": {
+            "description": "Returns one Todo",
+            "operationId": "get-todo",
+            "parameters": [
+               {
+                  "name": "id",
+                  "in": "path",
+                  "schema": {
+                     "type": "integer"
+                  },
+                  "required": true
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Todo found",
+                  "content": {
+                     "application/json":{
+                        "schema": {
+                           "$ref": "#/components/schemas/Todo"
+                        }
+                     }
+                  }
+               },
+               "404": {
+                  "description": "Todo not found"
+               }
+            }
+         }
+      }
+   }
+}
